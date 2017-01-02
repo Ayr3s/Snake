@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.pb_Game = new System.Windows.Forms.PictureBox();
             this.gameTime = new System.Windows.Forms.Timer(this.components);
+            this.lb_Info = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Game)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,10 +43,20 @@
             this.pb_Game.Size = new System.Drawing.Size(960, 526);
             this.pb_Game.TabIndex = 0;
             this.pb_Game.TabStop = false;
+            this.pb_Game.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_game_Draw);
             // 
             // gameTime
             // 
             this.gameTime.Interval = 60;
+            // 
+            // lb_Info
+            // 
+            this.lb_Info.AutoSize = true;
+            this.lb_Info.Location = new System.Drawing.Point(12, 569);
+            this.lb_Info.Name = "lb_Info";
+            this.lb_Info.Size = new System.Drawing.Size(35, 13);
+            this.lb_Info.TabIndex = 1;
+            this.lb_Info.Text = "label1";
             // 
             // Main
             // 
@@ -53,7 +64,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.lb_Info);
             this.Controls.Add(this.pb_Game);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
@@ -62,6 +75,7 @@
             this.Text = "Snake";
             ((System.ComponentModel.ISupportInitialize)(this.pb_Game)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -69,6 +83,7 @@
 
         private System.Windows.Forms.PictureBox pb_Game;
         private System.Windows.Forms.Timer gameTime;
+        private System.Windows.Forms.Label lb_Info;
     }
 }
 
