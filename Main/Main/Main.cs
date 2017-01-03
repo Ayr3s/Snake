@@ -30,12 +30,12 @@ namespace Main
             StartGame();
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Main_KeyDown(object sender, KeyEventArgs e)
         {
             Input.ChangeState(e.KeyCode, true);
         }
 
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        private void Main_KeyUp(object sender, KeyEventArgs e)
         {
             Input.ChangeState(e.KeyCode, false);
         }
@@ -48,6 +48,8 @@ namespace Main
 
             Square head = new Square { X = 480 / Settings.Width, Y = 263 / Settings.Height };
             Snake.Add(head);
+
+            lb_Info.Text = "Running";
 
             GenerateFood();
         }
@@ -71,16 +73,18 @@ namespace Main
             }
             else
             {
-                if (Input.KeyPressed(Keys.L) && Settings.Direction != Direction.Left)
+                if (Input.KeyPressed(Keys.Right) && Settings.Direction != Direction.Left)
                     Settings.Direction = Direction.Right;
-                else if (Input.KeyPressed(Keys.J) && Settings.Direction != Direction.Right)
+                else if (Input.KeyPressed(Keys.Left) && Settings.Direction != Direction.Right)
                     Settings.Direction = Direction.Left;
-                else if (Input.KeyPressed(Keys.I) && Settings.Direction != Direction.Down)
+                else if (Input.KeyPressed(Keys.Up) && Settings.Direction != Direction.Down)
                     Settings.Direction = Direction.Up;
-                else if (Input.KeyPressed(Keys.K) && Settings.Direction != Direction.Up)
+                else if (Input.KeyPressed(Keys.Down) && Settings.Direction != Direction.Up)
                     Settings.Direction = Direction.Down;
 
                 MovePlayer();
+
+                Settings.Score = Settings.Score + 1;
             }
 
             pb_Game.Invalidate();
@@ -145,6 +149,11 @@ namespace Main
 
         private void Eat()
         {
+            Square sq = new Square{ X = Snake[Snake.Count - 1].X , Y = Snake[Snake.Count - 1].Y };
+
+            Snake.Add(sq);
+
+            Settings.Score = Settings.Score + 100;
 
             GenerateFood();
         }
@@ -164,9 +173,9 @@ namespace Main
                 {
                     Brush snakeColour;
                     if (i == 0)
-                        snakeColour = Brushes.Black;     //Draw head
+                        snakeColour = Brushes.Black;
                     else
-                        snakeColour = Brushes.Green;    //Rest of body
+                        snakeColour = Brushes.Green;
 
                     //Draw snake
                     canvas.FillRectangle(snakeColour, new Rectangle(Snake[i].X * Settings.Width, Snake[i].Y * Settings.Height, Settings.Width, Settings.Height));
@@ -175,6 +184,8 @@ namespace Main
                     //Draw Food
                     canvas.FillEllipse(Brushes.Red, new Rectangle(food.X * Settings.Width, food.Y * Settings.Height, Settings.Width, Settings.Height));
                 }
+
+                lb_Score.Text = Settings.Score.ToString();
             }
             else
             {

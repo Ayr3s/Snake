@@ -37,6 +37,10 @@ namespace Main
         {
             get; set;
         }
+        public static int Score
+        {
+            get; set;
+        }
 
         public Settings()
         {
@@ -44,6 +48,7 @@ namespace Main
             Height = 15;
             Width = 15;
             Speed = 15;
+            Score = 0;
             GameStoped = false;
         }
 

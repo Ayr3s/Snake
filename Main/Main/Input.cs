@@ -8,10 +8,8 @@ namespace Main
 {
     internal class Input
     {
-        //Neue Hashtable mit den KeyInputs
         private static Hashtable keyTable = new Hashtable();
 
-        //Kontroll -> gedrückte Taste
         public static bool KeyPressed(Keys key)
         {
             if (keyTable[key] == null)
