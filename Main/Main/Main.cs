@@ -46,12 +46,10 @@ namespace Main
             new Settings();
 
             Snake.Clear();
+            Cancer.Clear();
 
             Square head = new Square { X = 480 / Settings.Width, Y = 263 / Settings.Height };
             Snake.Add(head);
-
-            Square bihead = new Square { X = Snake[0].X + Settings.Offsetx, Y = Snake[0].Y + Settings.Offsety };
-            Cancer.Add(bihead);
 
             lb_Info.Text = "Running";
 
@@ -102,6 +100,14 @@ namespace Main
                     Settings.Offsety = 0;
                 }
 
+                if (Snake.Count == 10 && Settings.Cancer == false)
+                {
+                    Square bihead = new Square { X = Snake[0].X + Settings.Offsetx, Y = Snake[0].Y + Settings.Offsety };
+                    Cancer.Add(bihead);
+
+                    Settings.Cancer = true;
+                }
+
                 MovePlayer();
 
                 Settings.Score = Settings.Score + Snake.Count*0.1;
@@ -136,6 +142,13 @@ namespace Main
                             break;
                     }
 
+                    if (Settings.Cancer)
+                    {
+                        Cancer[0].X = Snake[Settings.Pos].X + Settings.Offsetx;
+                        Cancer[0].Y = Snake[Settings.Pos].Y + Settings.Offsety;
+                    }
+
+
                     //Border Collision
                     if (Snake[i].X < 0 || Snake[i].Y < 0 || Snake[i].X >= maxX || Snake[i].Y >= maxY)
                     {
@@ -152,18 +165,36 @@ namespace Main
                         }
                     }
 
-                    //Cancer Collision
-                    /*for (int o = 0; o < Cancer.Count; o++)
+                    if (Settings.Cancer)
                     {
-                        if (Snake[i].X == Cancer[o].X && Snake[i].Y == Cancer[o].Y)
+                        for (int o = 0; o < Cancer.Count; o++)
+                        {
+                            if (Snake[i].X == Cancer[o].X && Snake[i].Y == Cancer[o].Y)
+                            {
+                                Stop();
+                            }
+                        }
+                        if (Cancer[0].X == food.X && Cancer[0].Y == food.Y)
+                        {
+                            Eat();
+                        }
+                        if (Cancer[0].X < 0 || Cancer[0].Y < 0 || Cancer[0].X >= maxX || Cancer[0].Y >= maxY)
                         {
                             Stop();
                         }
+                        for (int j = 1; j < Snake.Count; j++)
+                        {
+                            if (Cancer[0].X == Snake[j].X && Cancer[0].Y == Snake[j].Y)
+                            {
+                                Stop();
+                            }
+                        }
                     }
-                    */
+
+                    
 
                     //Food Collision
-                    if (Snake[0].X == food.X && Snake[0].Y == food.Y || Cancer[0].X == food.X && Cancer[0].Y == food.Y)
+                    if (Snake[0].X == food.X && Snake[0].Y == food.Y)
                     {
                         Eat();
                     }
@@ -174,8 +205,6 @@ namespace Main
                     Snake[i].X = Snake[i - 1].X;
                     Snake[i].Y = Snake[i - 1].Y;
                 }
-                Cancer[0].X = Snake[Settings.Pos].X + Settings.Offsetx;
-                Cancer[0].Y = Snake[Settings.Pos].Y + Settings.Offsety;
             }
         }
 

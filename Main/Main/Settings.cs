@@ -53,6 +53,10 @@ namespace Main
         {
             get; set;
         }
+        public static bool Cancer
+        {
+            get; set;
+        }
 
         public Settings()
         {
@@ -65,6 +69,7 @@ namespace Main
             Offsetx = 1;
             Offsety = 0;
             Pos = 0;
+            Cancer = false;
         }
 
     }
