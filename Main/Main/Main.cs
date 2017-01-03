@@ -71,13 +71,13 @@ namespace Main
             }
             else
             {
-                if (Input.KeyPressed(Keys.Right) && Settings.Direction != Direction.Left)
+                if (Input.KeyPressed(Keys.L) && Settings.Direction != Direction.Left)
                     Settings.Direction = Direction.Right;
-                else if (Input.KeyPressed(Keys.Left) && Settings.Direction != Direction.Right)
+                else if (Input.KeyPressed(Keys.J) && Settings.Direction != Direction.Right)
                     Settings.Direction = Direction.Left;
-                else if (Input.KeyPressed(Keys.Up) && Settings.Direction != Direction.Down)
+                else if (Input.KeyPressed(Keys.I) && Settings.Direction != Direction.Down)
                     Settings.Direction = Direction.Up;
-                else if (Input.KeyPressed(Keys.Down) && Settings.Direction != Direction.Up)
+                else if (Input.KeyPressed(Keys.K) && Settings.Direction != Direction.Up)
                     Settings.Direction = Direction.Down;
 
                 MovePlayer();

@@ -67,6 +67,7 @@
             this.Controls.Add(this.lb_Info);
             this.Controls.Add(this.pb_Game);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
