@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Main
 {
@@ -15,6 +16,16 @@ namespace Main
         public Scoreboard()
         {
             InitializeComponent();
+        }
+
+        private void btn_Submit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

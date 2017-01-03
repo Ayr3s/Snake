@@ -34,13 +34,17 @@
             this.lb_Info = new System.Windows.Forms.Label();
             this.lb_sco = new System.Windows.Forms.Label();
             this.lb_Score = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.allgemeinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scoreboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Game)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pb_Game
             // 
             this.pb_Game.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pb_Game.Location = new System.Drawing.Point(12, 12);
+            this.pb_Game.Location = new System.Drawing.Point(12, 36);
             this.pb_Game.Name = "pb_Game";
             this.pb_Game.Size = new System.Drawing.Size(960, 526);
             this.pb_Game.TabIndex = 0;
@@ -54,7 +58,7 @@
             // lb_Info
             // 
             this.lb_Info.AutoSize = true;
-            this.lb_Info.Location = new System.Drawing.Point(437, 556);
+            this.lb_Info.Location = new System.Drawing.Point(439, 591);
             this.lb_Info.Name = "lb_Info";
             this.lb_Info.Size = new System.Drawing.Size(35, 13);
             this.lb_Info.TabIndex = 1;
@@ -63,7 +67,7 @@
             // lb_sco
             // 
             this.lb_sco.AutoSize = true;
-            this.lb_sco.Location = new System.Drawing.Point(12, 556);
+            this.lb_sco.Location = new System.Drawing.Point(12, 591);
             this.lb_sco.Name = "lb_sco";
             this.lb_sco.Size = new System.Drawing.Size(41, 13);
             this.lb_sco.TabIndex = 2;
@@ -72,11 +76,36 @@
             // lb_Score
             // 
             this.lb_Score.AutoSize = true;
-            this.lb_Score.Location = new System.Drawing.Point(59, 556);
+            this.lb_Score.Location = new System.Drawing.Point(59, 591);
             this.lb_Score.Name = "lb_Score";
             this.lb_Score.Size = new System.Drawing.Size(13, 13);
             this.lb_Score.TabIndex = 3;
             this.lb_Score.Text = "0";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.allgemeinToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // allgemeinToolStripMenuItem
+            // 
+            this.allgemeinToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.scoreboardToolStripMenuItem});
+            this.allgemeinToolStripMenuItem.Name = "allgemeinToolStripMenuItem";
+            this.allgemeinToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.allgemeinToolStripMenuItem.Text = "Allgemein";
+            // 
+            // scoreboardToolStripMenuItem
+            // 
+            this.scoreboardToolStripMenuItem.Name = "scoreboardToolStripMenuItem";
+            this.scoreboardToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.scoreboardToolStripMenuItem.Text = "Scoreboard";
+            this.scoreboardToolStripMenuItem.Click += new System.EventHandler(this.scoreboardToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -89,8 +118,10 @@
             this.Controls.Add(this.lb_sco);
             this.Controls.Add(this.lb_Info);
             this.Controls.Add(this.pb_Game);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.KeyPreview = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
@@ -100,6 +131,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Main_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pb_Game)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,6 +145,9 @@
         private System.Windows.Forms.Label lb_Info;
         private System.Windows.Forms.Label lb_sco;
         private System.Windows.Forms.Label lb_Score;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem allgemeinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scoreboardToolStripMenuItem;
     }
 }
 

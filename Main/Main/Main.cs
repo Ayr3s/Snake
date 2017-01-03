@@ -267,5 +267,11 @@ namespace Main
                 lb_Info.Text = end;
             }
         }
+
+        private void scoreboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Scoreboard score = new Scoreboard();
+            score.Show();
+        }
     }
 }
