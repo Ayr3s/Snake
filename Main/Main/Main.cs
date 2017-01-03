@@ -15,6 +15,7 @@ namespace Main
         Random rnd = new Random();
 
         private List<Square> Snake = new List<Square>();
+        private List<Square> Cancer = new List<Square>();
         private Square food = new Square();
 
         public Main()
@@ -49,6 +50,9 @@ namespace Main
             Square head = new Square { X = 480 / Settings.Width, Y = 263 / Settings.Height };
             Snake.Add(head);
 
+            Square bihead = new Square { X = Snake[0].X + Settings.Offsetx, Y = Snake[0].Y + Settings.Offsety };
+            Cancer.Add(bihead);
+
             lb_Info.Text = "Running";
 
             GenerateFood();
@@ -74,13 +78,29 @@ namespace Main
             else
             {
                 if (Input.KeyPressed(Keys.Right) && Settings.Direction != Direction.Left)
+                {
                     Settings.Direction = Direction.Right;
+                    Settings.Offsety = -1;
+                    Settings.Offsetx = 0;
+                }
                 else if (Input.KeyPressed(Keys.Left) && Settings.Direction != Direction.Right)
+                {
                     Settings.Direction = Direction.Left;
+                    Settings.Offsety = 1;
+                    Settings.Offsetx = 0;
+                }
                 else if (Input.KeyPressed(Keys.Up) && Settings.Direction != Direction.Down)
+                {
                     Settings.Direction = Direction.Up;
+                    Settings.Offsetx = -1;
+                    Settings.Offsety = 0;
+                }
                 else if (Input.KeyPressed(Keys.Down) && Settings.Direction != Direction.Up)
+                {
                     Settings.Direction = Direction.Down;
+                    Settings.Offsetx = -1;
+                    Settings.Offsety = 0;
+                }
 
                 MovePlayer();
 
@@ -132,8 +152,18 @@ namespace Main
                         }
                     }
 
+                    //Cancer Collision
+                    /*for (int o = 0; o < Cancer.Count; o++)
+                    {
+                        if (Snake[i].X == Cancer[o].X && Snake[i].Y == Cancer[o].Y)
+                        {
+                            Stop();
+                        }
+                    }
+                    */
+
                     //Food Collision
-                    if (Snake[0].X == food.X && Snake[0].Y == food.Y)
+                    if (Snake[0].X == food.X && Snake[0].Y == food.Y || Cancer[0].X == food.X && Cancer[0].Y == food.Y)
                     {
                         Eat();
                     }
@@ -144,6 +174,8 @@ namespace Main
                     Snake[i].X = Snake[i - 1].X;
                     Snake[i].Y = Snake[i - 1].Y;
                 }
+                Cancer[0].X = Snake[Settings.Pos].X + Settings.Offsetx;
+                Cancer[0].Y = Snake[Settings.Pos].Y + Settings.Offsety;
             }
         }
 
@@ -152,6 +184,8 @@ namespace Main
             Square sq = new Square{ X = Snake[Snake.Count - 1].X , Y = Snake[Snake.Count - 1].Y };
 
             Snake.Add(sq);
+
+            //Settings.Pos++;
 
             Settings.Score = Settings.Score + 100;
 
@@ -183,6 +217,13 @@ namespace Main
 
                     //Draw Food
                     canvas.FillEllipse(Brushes.Red, new Rectangle(food.X * Settings.Width, food.Y * Settings.Height, Settings.Width, Settings.Height));
+                }
+
+                for (int j = 0; j < Cancer.Count; j++)
+                {
+                    Brush cancerColour = Brushes.BlueViolet;
+                    //Draw Cancerpart
+                    canvas.FillRectangle(cancerColour, new Rectangle(Cancer[j].X * Settings.Width, Cancer[j].Y * Settings.Height, Settings.Width, Settings.Height));
                 }
 
                 lb_Score.Text = Settings.Score.ToString();

@@ -41,6 +41,18 @@ namespace Main
         {
             get; set;
         }
+        public static int Offsetx
+        {
+            get; set;
+        }
+        public static int Offsety
+        {
+            get; set;
+        }
+        public static int Pos
+        {
+            get; set;
+        }
 
         public Settings()
         {
@@ -50,6 +62,9 @@ namespace Main
             Speed = 15;
             Score = 0;
             GameStoped = false;
+            Offsetx = 1;
+            Offsety = 0;
+            Pos = 0;
         }
 
     }
