@@ -104,7 +104,7 @@ namespace Main
 
                 MovePlayer();
 
-                Settings.Score = Settings.Score + 1;
+                Settings.Score = Settings.Score + Snake.Count*0.1;
             }
 
             pb_Game.Invalidate();
@@ -221,7 +221,11 @@ namespace Main
 
                 for (int j = 0; j < Cancer.Count; j++)
                 {
-                    Brush cancerColour = Brushes.BlueViolet;
+                    Brush cancerColour;
+                    if (Settings.Pos == 0)
+                        cancerColour = Brushes.BlueViolet;
+                    else
+                        cancerColour = Brushes.Green;
                     //Draw Cancerpart
                     canvas.FillRectangle(cancerColour, new Rectangle(Cancer[j].X * Settings.Width, Cancer[j].Y * Settings.Height, Settings.Width, Settings.Height));
                 }

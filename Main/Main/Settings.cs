@@ -37,7 +37,7 @@ namespace Main
         {
             get; set;
         }
-        public static int Score
+        public static double Score
         {
             get; set;
         }
