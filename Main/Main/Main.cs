@@ -25,6 +25,7 @@ namespace Main
             InitializeComponent();
 
             new Settings();
+            new GlobalSettings();
 
             gameTime.Interval = 1000 / Settings.Speed;
             gameTime.Tick += UpdateScreen;
@@ -54,7 +55,7 @@ namespace Main
             Square head = new Square { X = 500 / Settings.Width, Y = 263 / Settings.Height };
             Snake.Add(head);
 
-            if (Settings.Player2)
+            if (GlobalSettings.Player2)
             {
                 Square head2 = new Square { X = 460 / Settings.Width, Y = 263 / Settings.Height };
                 Snake2.Add(head2);
@@ -157,7 +158,7 @@ namespace Main
 
             pb_Game.Invalidate();
 
-            label1.Text = Settings.Player2.ToString();
+            label1.Text = GlobalSettings.Player2.ToString();
         }
 
         private void MovePlayer()
@@ -260,7 +261,7 @@ namespace Main
                 }
             }
 
-            if(Settings.Player2)
+            if(GlobalSettings.Player2)
             {
                 for (int j = Snake2.Count - 1; j >= 0; j--)
                 {
@@ -463,7 +464,7 @@ namespace Main
 
         private void Player2_Click(object sender, EventArgs e)
         {
-            Settings.Player2 =! Settings.Player2;
+            GlobalSettings.Player2 =! GlobalSettings.Player2;
         }
     }
 }

@@ -73,10 +73,6 @@ namespace Main
         {
             get; set;
         }
-        public static bool Player2
-        {
-            get; set;
-        }
         public static bool Cancer2
         {
             get; set;
@@ -100,7 +96,6 @@ namespace Main
             Pos2 = 0;
             Cancer = false;
             Cancer2 = false;
-            Player2 = false;
         }
 
     }

@@ -121,6 +121,7 @@
             // 
             // Player2
             // 
+            this.Player2.CheckOnClick = true;
             this.Player2.Name = "Player2";
             this.Player2.Size = new System.Drawing.Size(160, 22);
             this.Player2.Text = "2 Spieler-Modus";
