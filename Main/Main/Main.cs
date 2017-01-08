@@ -204,6 +204,15 @@ namespace Main
                         }
                     }
 
+                    //snake collision
+                    for (int b = 1; b < Snake2.Count; b++)
+                    {
+                        if (Snake[i].X == Snake2[b].X && Snake[i].Y == Snake2[b].Y)
+                        {
+                            Stop();
+                        }
+                    }
+
                     if (Settings.Cancer)
                     {
                         for (int o = 0; o < Cancer.Count; o++)
@@ -285,6 +294,15 @@ namespace Main
                     for (int o = 1; o < Snake2.Count; o++)
                     {
                         if (Snake2[j].X == Snake2[o].X && Snake2[j].Y == Snake2[o].Y)
+                        {
+                            Stop();
+                        }
+                    }
+
+                    //snake collision
+                    for (int b = 1; b < Snake.Count; b++)
+                    {
+                        if (Snake2[j].X == Snake[b].X && Snake2[j].Y == Snake[b].Y)
                         {
                             Stop();
                         }
@@ -407,6 +425,17 @@ namespace Main
 
                     //Draw snake
                     canvas.FillRectangle(snakeColour2, new Rectangle(Snake2[o].X * Settings.Width, Snake2[o].Y * Settings.Height, Settings.Width, Settings.Height));
+                }
+
+                for (int k = 0; k < Cancer2.Count; k++)
+                {
+                    Brush cancerColour2;
+                    if (Settings.Pos2 == 0)
+                        cancerColour2 = Brushes.BlueViolet;
+                    else
+                        cancerColour2 = Brushes.Green;
+                    //Draw Cancerpart
+                    canvas.FillRectangle(cancerColour2, new Rectangle(Cancer2[k].X * Settings.Width, Cancer2[k].Y * Settings.Height, Settings.Width, Settings.Height));
                 }
 
                 lb_Score.Text = Settings.Score.ToString();

@@ -65,6 +65,10 @@ namespace Main
         {
             get; set;
         }
+        public static int Pos2
+        {
+            get; set;
+        }
         public static bool Cancer
         {
             get; set;
@@ -88,6 +92,7 @@ namespace Main
             Offsetx2 = 1;
             Offsety2 = 0;
             Pos = 0;
+            Pos2 = 0;
             Cancer = false;
             Cancer2 = false;
         }
