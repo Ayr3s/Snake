@@ -54,8 +54,11 @@ namespace Main
             Square head = new Square { X = 500 / Settings.Width, Y = 263 / Settings.Height };
             Snake.Add(head);
 
-            Square head2 = new Square { X = 460 / Settings.Width, Y = 263 / Settings.Height };
-            Snake2.Add(head2);
+            if (Settings.Player2)
+            {
+                Square head2 = new Square { X = 460 / Settings.Width, Y = 263 / Settings.Height };
+                Snake2.Add(head2);
+            }
 
             lb_Info.Text = "Running";
 
@@ -153,6 +156,8 @@ namespace Main
             }
 
             pb_Game.Invalidate();
+
+            label1.Text = Settings.Player2.ToString();
         }
 
         private void MovePlayer()
@@ -205,7 +210,7 @@ namespace Main
                     }
 
                     //snake collision
-                    for (int b = 1; b < Snake2.Count; b++)
+                    for (int b = 0; b < Snake2.Count; b++)
                     {
                         if (Snake[i].X == Snake2[b].X && Snake[i].Y == Snake2[b].Y)
                         {
@@ -255,98 +260,101 @@ namespace Main
                 }
             }
 
-            for (int j = Snake2.Count - 1; j >= 0; j--)
+            if(Settings.Player2)
             {
-                //Move head
-                if (j == 0)
+                for (int j = Snake2.Count - 1; j >= 0; j--)
                 {
-                    switch (Settings.Direction2)
+                    //Move head
+                    if (j == 0)
                     {
-                        case Direction.Right:
-                            Snake2[j].X++;
-                            break;
-                        case Direction.Left:
-                            Snake2[j].X--;
-                            break;
-                        case Direction.Up:
-                            Snake2[j].Y--;
-                            break;
-                        case Direction.Down:
-                            Snake2[j].Y++;
-                            break;
-                    }
+                        switch (Settings.Direction2)
+                        {
+                            case Direction.Right:
+                                Snake2[j].X++;
+                                break;
+                            case Direction.Left:
+                                Snake2[j].X--;
+                                break;
+                            case Direction.Up:
+                                Snake2[j].Y--;
+                                break;
+                            case Direction.Down:
+                                Snake2[j].Y++;
+                                break;
+                        }
 
-                    if (Settings.Cancer2)
-                    {
-                        Cancer2[0].X = Snake2[Settings.Pos].X + Settings.Offsetx;
-                        Cancer2[0].Y = Snake2[Settings.Pos].Y + Settings.Offsety;
-                    }
-
-
-                    //Border Collision
-                    if (Snake2[j].X < 0 || Snake2[j].Y < 0 || Snake2[j].X >= maxX || Snake2[j].Y >= maxY)
-                    {
-                        Stop();
-                    }
+                        if (Settings.Cancer2)
+                        {
+                            Cancer2[0].X = Snake2[Settings.Pos].X + Settings.Offsetx;
+                            Cancer2[0].Y = Snake2[Settings.Pos].Y + Settings.Offsety;
+                        }
 
 
-                    //Body Collision
-                    for (int o = 1; o < Snake2.Count; o++)
-                    {
-                        if (Snake2[j].X == Snake2[o].X && Snake2[j].Y == Snake2[o].Y)
+                        //Border Collision
+                        if (Snake2[j].X < 0 || Snake2[j].Y < 0 || Snake2[j].X >= maxX || Snake2[j].Y >= maxY)
                         {
                             Stop();
                         }
-                    }
 
-                    //snake collision
-                    for (int b = 1; b < Snake.Count; b++)
-                    {
-                        if (Snake2[j].X == Snake[b].X && Snake2[j].Y == Snake[b].Y)
-                        {
-                            Stop();
-                        }
-                    }
 
-                    if (Settings.Cancer2)
-                    {
-                        for (int k = 0; k < Cancer2.Count; k++)
+                        //Body Collision
+                        for (int o = 1; o < Snake2.Count; o++)
                         {
-                            if (Snake[j].X == Cancer2[0].X && Snake[j].Y == Cancer2[0].Y)
+                            if (Snake2[j].X == Snake2[o].X && Snake2[j].Y == Snake2[o].Y)
                             {
                                 Stop();
                             }
                         }
-                        if (Cancer2[0].X == food.X && Cancer2[0].Y == food.Y)
+
+                        //snake collision
+                        for (int b = 0; b < Snake.Count; b++)
+                        {
+                            if (Snake2[j].X == Snake[b].X && Snake2[j].Y == Snake[b].Y)
+                            {
+                                Stop();
+                            }
+                        }
+
+                        if (Settings.Cancer2)
+                        {
+                            for (int k = 0; k < Cancer2.Count; k++)
+                            {
+                                if (Snake[j].X == Cancer2[0].X && Snake[j].Y == Cancer2[0].Y)
+                                {
+                                    Stop();
+                                }
+                            }
+                            if (Cancer2[0].X == food.X && Cancer2[0].Y == food.Y)
+                            {
+                                Eat2();
+                            }
+                            if (Cancer2[0].X < 0 || Cancer2[0].Y < 0 || Cancer2[0].X >= maxX || Cancer2[0].Y >= maxY)
+                            {
+                                Stop();
+                            }
+                            for (int a = 1; a < Snake2.Count; j++)
+                            {
+                                if (Cancer2[0].X == Snake2[a].X && Cancer2[0].Y == Snake[a].Y)
+                                {
+                                    Stop();
+                                }
+                            }
+                        }
+
+
+
+                        //Food Collision
+                        if (Snake2[0].X == food.X && Snake2[0].Y == food.Y)
                         {
                             Eat2();
                         }
-                        if (Cancer2[0].X < 0 || Cancer2[0].Y < 0 || Cancer2[0].X >= maxX || Cancer2[0].Y >= maxY)
-                        {
-                            Stop();
-                        }
-                        for (int a = 1; a < Snake2.Count; j++)
-                        {
-                            if (Cancer2[0].X == Snake2[a].X && Cancer2[0].Y == Snake[a].Y)
-                            {
-                                Stop();
-                            }
-                        }
                     }
-
-
-
-                    //Food Collision
-                    if (Snake2[0].X == food.X && Snake2[0].Y == food.Y)
+                    else
                     {
-                        Eat2();
+                        //Move body
+                        Snake2[j].X = Snake2[j - 1].X;
+                        Snake2[j].Y = Snake2[j - 1].Y;
                     }
-                }
-                else
-                {
-                    //Move body
-                    Snake2[j].X = Snake2[j - 1].X;
-                    Snake2[j].Y = Snake2[j - 1].Y;
                 }
             }
         }
@@ -451,6 +459,11 @@ namespace Main
         {
             Scoreboard score = new Scoreboard();
             score.Show();
+        }
+
+        private void Player2_Click(object sender, EventArgs e)
+        {
+            Settings.Player2 =! Settings.Player2;
         }
     }
 }

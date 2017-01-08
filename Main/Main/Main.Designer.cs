@@ -37,6 +37,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.allgemeinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scoreboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.einstellungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Player2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Game)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +88,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.allgemeinToolStripMenuItem});
+            this.allgemeinToolStripMenuItem,
+            this.einstellungenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(984, 24);
@@ -107,6 +111,30 @@
             this.scoreboardToolStripMenuItem.Text = "Scoreboard";
             this.scoreboardToolStripMenuItem.Click += new System.EventHandler(this.scoreboardToolStripMenuItem_Click);
             // 
+            // einstellungenToolStripMenuItem
+            // 
+            this.einstellungenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Player2});
+            this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
+            this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.einstellungenToolStripMenuItem.Text = "Einstellungen";
+            // 
+            // Player2
+            // 
+            this.Player2.Name = "Player2";
+            this.Player2.Size = new System.Drawing.Size(160, 22);
+            this.Player2.Text = "2 Spieler-Modus";
+            this.Player2.Click += new System.EventHandler(this.Player2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(439, 626);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "label1";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,6 +142,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lb_Score);
             this.Controls.Add(this.lb_sco);
             this.Controls.Add(this.lb_Info);
@@ -148,6 +177,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem allgemeinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem scoreboardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem einstellungenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Player2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
