@@ -401,7 +401,7 @@ namespace Main
                 {
                     Brush snakeColour;
                     if (i == 0)
-                        snakeColour = Brushes.Black;
+                        snakeColour = Brushes.ForestGreen;
                     else
                         snakeColour = Brushes.Green;
 
