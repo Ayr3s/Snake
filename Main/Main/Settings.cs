@@ -21,6 +21,10 @@ namespace Main
         {
             get; set;
         }
+        public static Direction Direction2
+        {
+            get; set;
+        }
         public static int Height
         {
             get; set;
@@ -49,6 +53,14 @@ namespace Main
         {
             get; set;
         }
+        public static int Offsetx2
+        {
+            get; set;
+        }
+        public static int Offsety2
+        {
+            get; set;
+        }
         public static int Pos
         {
             get; set;
@@ -57,10 +69,15 @@ namespace Main
         {
             get; set;
         }
+        public static bool Cancer2
+        {
+            get; set;
+        }
 
         public Settings()
         {
             Direction = Direction.Down;
+            Direction2 = Direction.Down;
             Height = 15;
             Width = 15;
             Speed = 15;
@@ -68,8 +85,11 @@ namespace Main
             GameStoped = false;
             Offsetx = 1;
             Offsety = 0;
+            Offsetx2 = 1;
+            Offsety2 = 0;
             Pos = 0;
             Cancer = false;
+            Cancer2 = false;
         }
 
     }
