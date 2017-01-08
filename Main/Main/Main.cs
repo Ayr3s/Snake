@@ -428,9 +428,9 @@ namespace Main
                 {
                     Brush snakeColour2;
                     if (o == 0)
-                        snakeColour2 = Brushes.Black;
+                        snakeColour2 = Brushes.Orange;
                     else
-                        snakeColour2 = Brushes.Green;
+                        snakeColour2 = Brushes.Red;
 
                     //Draw snake
                     canvas.FillRectangle(snakeColour2, new Rectangle(Snake2[o].X * Settings.Width, Snake2[o].Y * Settings.Height, Settings.Width, Settings.Height));
