@@ -156,9 +156,15 @@ namespace Main
                 Settings.Score = Settings.Score + Snake.Count*0.1;
             }
 
-            pb_Game.Invalidate();
+            lb_leng.Text = Snake.Count.ToString();
 
-            label1.Text = GlobalSettings.Player2.ToString();
+            if (GlobalSettings.Player2)
+            {
+                lb_leng2.Visible = true;
+                lb_leng2.Text = Snake2.Count.ToString();
+            }
+
+            pb_Game.Invalidate();
         }
 
         private void MovePlayer()
@@ -469,7 +475,18 @@ namespace Main
 
         private void Mutationen_Click(object sender, EventArgs e)
         {
+            if (GlobalSettings.Mutation)
+            {
+                lb_mutstat.ForeColor = Color.Red;
+                lb_mutstat.Text = "Inaktiv";
+            }
+            else
+            {
+                lb_mutstat.ForeColor = Color.Green;
+                lb_mutstat.Text = "Aktiv";
+            }
             GlobalSettings.Mutation = !GlobalSettings.Mutation;
+
         }
     }
 }

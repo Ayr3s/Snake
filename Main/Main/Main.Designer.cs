@@ -39,8 +39,13 @@
             this.scoreboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.einstellungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Player2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_Info2 = new System.Windows.Forms.Label();
             this.Mutationen = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.lb_mutstat = new System.Windows.Forms.Label();
+            this.lb_Info3 = new System.Windows.Forms.Label();
+            this.lb_leng = new System.Windows.Forms.Label();
+            this.lb_leng2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Game)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -116,6 +121,7 @@
             // 
             this.einstellungenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Player2,
+            this.toolStripSeparator1,
             this.Mutationen});
             this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
             this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
@@ -129,14 +135,14 @@
             this.Player2.Text = "2 Spieler-Modus";
             this.Player2.Click += new System.EventHandler(this.Player2_Click);
             // 
-            // label1
+            // lb_Info2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(439, 626);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "label1";
+            this.lb_Info2.AutoSize = true;
+            this.lb_Info2.Location = new System.Drawing.Point(811, 591);
+            this.lb_Info2.Name = "lb_Info2";
+            this.lb_Info2.Size = new System.Drawing.Size(66, 13);
+            this.lb_Info2.TabIndex = 7;
+            this.lb_Info2.Text = "Mutationen :";
             // 
             // Mutationen
             // 
@@ -146,6 +152,49 @@
             this.Mutationen.Text = "Mutationen";
             this.Mutationen.Click += new System.EventHandler(this.Mutationen_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            // 
+            // lb_mutstat
+            // 
+            this.lb_mutstat.AutoSize = true;
+            this.lb_mutstat.ForeColor = System.Drawing.Color.Red;
+            this.lb_mutstat.Location = new System.Drawing.Point(883, 591);
+            this.lb_mutstat.Name = "lb_mutstat";
+            this.lb_mutstat.Size = new System.Drawing.Size(39, 13);
+            this.lb_mutstat.TabIndex = 8;
+            this.lb_mutstat.Text = "Inaktiv";
+            // 
+            // lb_Info3
+            // 
+            this.lb_Info3.AutoSize = true;
+            this.lb_Info3.Location = new System.Drawing.Point(12, 617);
+            this.lb_Info3.Name = "lb_Info3";
+            this.lb_Info3.Size = new System.Drawing.Size(43, 13);
+            this.lb_Info3.TabIndex = 9;
+            this.lb_Info3.Text = "Länge :";
+            // 
+            // lb_leng
+            // 
+            this.lb_leng.AutoSize = true;
+            this.lb_leng.Location = new System.Drawing.Point(61, 617);
+            this.lb_leng.Name = "lb_leng";
+            this.lb_leng.Size = new System.Drawing.Size(13, 13);
+            this.lb_leng.TabIndex = 10;
+            this.lb_leng.Text = "0";
+            // 
+            // lb_leng2
+            // 
+            this.lb_leng2.AutoSize = true;
+            this.lb_leng2.Location = new System.Drawing.Point(128, 617);
+            this.lb_leng2.Name = "lb_leng2";
+            this.lb_leng2.Size = new System.Drawing.Size(13, 13);
+            this.lb_leng2.TabIndex = 11;
+            this.lb_leng2.Text = "0";
+            this.lb_leng2.Visible = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,7 +202,11 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lb_leng2);
+            this.Controls.Add(this.lb_leng);
+            this.Controls.Add(this.lb_Info3);
+            this.Controls.Add(this.lb_mutstat);
+            this.Controls.Add(this.lb_Info2);
             this.Controls.Add(this.lb_Score);
             this.Controls.Add(this.lb_sco);
             this.Controls.Add(this.lb_Info);
@@ -190,8 +243,13 @@
         private System.Windows.Forms.ToolStripMenuItem scoreboardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem einstellungenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Player2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_Info2;
         private System.Windows.Forms.ToolStripMenuItem Mutationen;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.Label lb_mutstat;
+        private System.Windows.Forms.Label lb_Info3;
+        private System.Windows.Forms.Label lb_leng;
+        private System.Windows.Forms.Label lb_leng2;
     }
 }
 
