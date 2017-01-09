@@ -12,10 +12,15 @@ namespace Main
         {
             get; set;
         }
+        public static bool Mutation
+        {
+            get; set;
+        }
 
         public GlobalSettings()
         {
             Player2 = false;
+            Mutation = false;
         }
     }
 }

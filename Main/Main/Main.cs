@@ -135,7 +135,7 @@ namespace Main
                     Settings.Offsety2 = 0;
                 }
 
-                if (Snake.Count == 10 && Settings.Cancer == false)
+                if (Snake.Count == 10 && Settings.Cancer == false && GlobalSettings.Mutation)
                 {
                     Square bihead = new Square { X = Snake[0].X + Settings.Offsetx, Y = Snake[0].Y + Settings.Offsety };
                     Cancer.Add(bihead);
@@ -143,7 +143,7 @@ namespace Main
                     Settings.Cancer = true;
                 }
 
-                if (Snake2.Count == 10 && Settings.Cancer2 == false)
+                if (Snake2.Count == 10 && Settings.Cancer2 == false && GlobalSettings.Mutation)
                 {
                     Square bihead2 = new Square { X = Snake2[0].X + Settings.Offsetx, Y = Snake2[0].Y + Settings.Offsety };
                     Cancer.Add(bihead2);
@@ -465,6 +465,11 @@ namespace Main
         private void Player2_Click(object sender, EventArgs e)
         {
             GlobalSettings.Player2 =! GlobalSettings.Player2;
+        }
+
+        private void Mutationen_Click(object sender, EventArgs e)
+        {
+            GlobalSettings.Mutation = !GlobalSettings.Mutation;
         }
     }
 }

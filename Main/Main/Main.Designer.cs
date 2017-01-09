@@ -40,6 +40,7 @@
             this.einstellungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Player2 = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.Mutationen = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Game)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -107,14 +108,15 @@
             // scoreboardToolStripMenuItem
             // 
             this.scoreboardToolStripMenuItem.Name = "scoreboardToolStripMenuItem";
-            this.scoreboardToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.scoreboardToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.scoreboardToolStripMenuItem.Text = "Scoreboard";
             this.scoreboardToolStripMenuItem.Click += new System.EventHandler(this.scoreboardToolStripMenuItem_Click);
             // 
             // einstellungenToolStripMenuItem
             // 
             this.einstellungenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Player2});
+            this.Player2,
+            this.Mutationen});
             this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
             this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.einstellungenToolStripMenuItem.Text = "Einstellungen";
@@ -135,6 +137,14 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "label1";
+            // 
+            // Mutationen
+            // 
+            this.Mutationen.CheckOnClick = true;
+            this.Mutationen.Name = "Mutationen";
+            this.Mutationen.Size = new System.Drawing.Size(160, 22);
+            this.Mutationen.Text = "Mutationen";
+            this.Mutationen.Click += new System.EventHandler(this.Mutationen_Click);
             // 
             // Main
             // 
@@ -181,6 +191,7 @@
         private System.Windows.Forms.ToolStripMenuItem einstellungenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Player2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem Mutationen;
     }
 }
 
