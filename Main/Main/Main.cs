@@ -24,6 +24,8 @@ namespace Main
         {
             InitializeComponent();
 
+            Intro();
+
             new Settings();
             new GlobalSettings();
 
@@ -42,6 +44,12 @@ namespace Main
         private void Main_KeyUp(object sender, KeyEventArgs e)
         {
             Input.ChangeState(e.KeyCode, false);
+        }
+
+        private void Intro()
+        {
+            string msg = "Willkommen zu Snake. \n Diese Version von Snake beinhaltet einen lokalen Multiplayer, sowie einschaltbare Zusatzfeatures. Zum Einschalten benutzen Sie bitte das Einstellungsmenü. \n Die standartmäßige Steuerung sind die Pfeiltasten und die Leertaste zum Spiel starten. Der zweite Spieler muss die WASD-Tasten zum Spielen verwenden.";
+            MessageBox.Show(msg, "Snake");
         }
 
         private void StartGame()
@@ -426,6 +434,7 @@ namespace Main
                         cancerColour = Brushes.BlueViolet;
                     else
                         cancerColour = Brushes.Green;
+
                     //Draw Cancerpart
                     canvas.FillRectangle(cancerColour, new Rectangle(Cancer[j].X * Settings.Width, Cancer[j].Y * Settings.Height, Settings.Width, Settings.Height));
                 }
@@ -449,6 +458,7 @@ namespace Main
                         cancerColour2 = Brushes.BlueViolet;
                     else
                         cancerColour2 = Brushes.Green;
+
                     //Draw Cancerpart
                     canvas.FillRectangle(cancerColour2, new Rectangle(Cancer2[k].X * Settings.Width, Cancer2[k].Y * Settings.Height, Settings.Width, Settings.Height));
                 }
@@ -485,7 +495,8 @@ namespace Main
                 lb_mutstat.ForeColor = Color.Green;
                 lb_mutstat.Text = "Aktiv";
             }
-            GlobalSettings.Mutation = !GlobalSettings.Mutation;
+
+            GlobalSettings.Mutation =! GlobalSettings.Mutation;
 
         }
     }
