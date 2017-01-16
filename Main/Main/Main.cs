@@ -153,8 +153,8 @@ namespace Main
 
                 if (Snake2.Count == 10 && Settings.Cancer2 == false && GlobalSettings.Mutation)
                 {
-                    Square bihead2 = new Square { X = Snake2[0].X + Settings.Offsetx, Y = Snake2[0].Y + Settings.Offsety };
-                    Cancer.Add(bihead2);
+                    Square bihead2 = new Square { X = Snake2[0].X + Settings.Offsetx2, Y = Snake2[0].Y + Settings.Offsety2 };
+                    Cancer2.Add(bihead2);
 
                     Settings.Cancer2 = true;
                 }
@@ -300,8 +300,8 @@ namespace Main
 
                         if (Settings.Cancer2)
                         {
-                            Cancer2[0].X = Snake2[Settings.Pos].X + Settings.Offsetx;
-                            Cancer2[0].Y = Snake2[Settings.Pos].Y + Settings.Offsety;
+                            Cancer2[0].X = Snake2[Settings.Pos].X + Settings.Offsetx2;
+                            Cancer2[0].Y = Snake2[Settings.Pos].Y + Settings.Offsety2;
                         }
 
 
@@ -389,7 +389,7 @@ namespace Main
 
         private void Eat2()
         {
-            Square sq2 = new Square { X = Snake2[Snake.Count - 1].X, Y = Snake2[Snake.Count - 1].Y };
+            Square sq2 = new Square { X = Snake2[Snake2.Count - 1].X, Y = Snake2[Snake2.Count - 1].Y };
 
             Snake2.Add(sq2);
 
