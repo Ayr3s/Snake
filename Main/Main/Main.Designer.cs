@@ -39,13 +39,14 @@
             this.scoreboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.einstellungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Player2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.lb_Info2 = new System.Windows.Forms.Label();
-            this.Mutationen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.Mutationen = new System.Windows.Forms.ToolStripMenuItem();
+            this.lb_Info2 = new System.Windows.Forms.Label();
             this.lb_mutstat = new System.Windows.Forms.Label();
             this.lb_Info3 = new System.Windows.Forms.Label();
             this.lb_leng = new System.Windows.Forms.Label();
             this.lb_leng2 = new System.Windows.Forms.Label();
+            this.ts_info = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Game)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +106,8 @@
             // allgemeinToolStripMenuItem
             // 
             this.allgemeinToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.scoreboardToolStripMenuItem});
+            this.scoreboardToolStripMenuItem,
+            this.ts_info});
             this.allgemeinToolStripMenuItem.Name = "allgemeinToolStripMenuItem";
             this.allgemeinToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.allgemeinToolStripMenuItem.Text = "Allgemein";
@@ -113,7 +115,7 @@
             // scoreboardToolStripMenuItem
             // 
             this.scoreboardToolStripMenuItem.Name = "scoreboardToolStripMenuItem";
-            this.scoreboardToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.scoreboardToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.scoreboardToolStripMenuItem.Text = "Scoreboard";
             this.scoreboardToolStripMenuItem.Click += new System.EventHandler(this.scoreboardToolStripMenuItem_Click);
             // 
@@ -135,14 +137,10 @@
             this.Player2.Text = "2 Spieler-Modus";
             this.Player2.Click += new System.EventHandler(this.Player2_Click);
             // 
-            // lb_Info2
+            // toolStripSeparator1
             // 
-            this.lb_Info2.AutoSize = true;
-            this.lb_Info2.Location = new System.Drawing.Point(811, 591);
-            this.lb_Info2.Name = "lb_Info2";
-            this.lb_Info2.Size = new System.Drawing.Size(66, 13);
-            this.lb_Info2.TabIndex = 7;
-            this.lb_Info2.Text = "Mutationen :";
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
             // 
             // Mutationen
             // 
@@ -152,10 +150,14 @@
             this.Mutationen.Text = "Mutationen";
             this.Mutationen.Click += new System.EventHandler(this.Mutationen_Click);
             // 
-            // toolStripSeparator1
+            // lb_Info2
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            this.lb_Info2.AutoSize = true;
+            this.lb_Info2.Location = new System.Drawing.Point(811, 591);
+            this.lb_Info2.Name = "lb_Info2";
+            this.lb_Info2.Size = new System.Drawing.Size(66, 13);
+            this.lb_Info2.TabIndex = 7;
+            this.lb_Info2.Text = "Mutationen :";
             // 
             // lb_mutstat
             // 
@@ -194,6 +196,13 @@
             this.lb_leng2.TabIndex = 11;
             this.lb_leng2.Text = "0";
             this.lb_leng2.Visible = false;
+            // 
+            // ts_info
+            // 
+            this.ts_info.Name = "ts_info";
+            this.ts_info.Size = new System.Drawing.Size(152, 22);
+            this.ts_info.Text = "Infos";
+            this.ts_info.Click += new System.EventHandler(this.ts_info_Click);
             // 
             // Main
             // 
@@ -250,6 +259,7 @@
         private System.Windows.Forms.Label lb_Info3;
         private System.Windows.Forms.Label lb_leng;
         private System.Windows.Forms.Label lb_leng2;
+        private System.Windows.Forms.ToolStripMenuItem ts_info;
     }
 }
 

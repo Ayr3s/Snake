@@ -24,8 +24,6 @@ namespace Main
         {
             InitializeComponent();
 
-            Intro();
-
             new Settings();
             new GlobalSettings();
 
@@ -498,6 +496,11 @@ namespace Main
 
             GlobalSettings.Mutation =! GlobalSettings.Mutation;
 
+        }
+
+        private void ts_info_Click(object sender, EventArgs e)
+        {
+            Intro();
         }
     }
 }
