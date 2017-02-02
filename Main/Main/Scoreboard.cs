@@ -20,12 +20,12 @@ namespace Main
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
-
+            //.pushBoard
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-
+            //.getBoard
         }
     }
 }
