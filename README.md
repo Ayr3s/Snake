@@ -4,7 +4,7 @@ The simple Game "Snake" coded in C# using a canvas to draw it.
 
 ## Getting Started
 
-To Run the Code ypurself you just need to download the Source Code and open the .sln with Microsoft Visual Studio 2015
+To Run the Code yourself you just need to download the Source Code and open the .sln with Microsoft Visual Studio 2015
 
 ### Prerequisites
 
