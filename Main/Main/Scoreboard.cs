@@ -17,6 +17,8 @@ namespace Main
         {
             InitializeComponent();
         }
+        
+        private ArrayList<String> = new ArrayList<String>();
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
