@@ -18,8 +18,9 @@ namespace Main
             InitializeComponent();
         }
         
-        private ArrayList<String> = new ArrayList<String>();
-
+        private List<String> board = new List<String>();
+        private List<String> toPush = new List<String>();
+        private String[] sync = new String[3];
         private void btn_Submit_Click(object sender, EventArgs e)
         {
             //.pushBoard
