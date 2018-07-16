@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using MySql.Data.MySqlClient;
 
 namespace Main
 {
@@ -18,21 +19,46 @@ namespace Main
             InitializeComponent();
         }
         
-        private List<String> board = new List<String>();
-        private List<String> toPush = new List<String>();
-        private String[] sync = new String[3];
         private void btn_Submit_Click(object sender, EventArgs e)
         {
-            //.pushBoard
-            // Read the csv File and remove the header and compare the data with the preloaded ArrayList and add new Entries.
-            // Convert the Csv Reads to a String-Array
-            // Paste the new StringArray Parts to the existing list-view at the scoreboard
+            double Score = Settings.Score;
+            string Name = tb_Name.Text;
+            write(Name, Score);
         }
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            //.getBoard
-            // Push Data from Variables to a csv File with an predefinded Header
+            read();
+        }
+
+        private void write(string a, double b)
+        {
+            string cs = @"server=localhost;userid=root;password=1234;database=scoreboard";
+            MySqlConnection conn = null;
+            conn = new MySqlConnection(cs);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = conn;
+
+            cmd.CommandText = "INSERT INTO score VALUES(@Name,@Score)";
+            cmd.Parameters.AddWithValue("@Name", a);
+            cmd.Parameters.AddWithValue("@Score", b);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        private void read()
+        {
+            this.scoreTableAdapter.Fill(this.mySet1.score);
+            dataGridView1.Sort(scoreDataGridViewTextBoxColumn,ListSortDirection.Descending);
+        }
+
+        private void Scoreboard_Load(object sender, EventArgs e)
+        {
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "mySet1.score". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.scoreTableAdapter.Fill(this.mySet1.score);
+            dataGridView1.Sort(scoreDataGridViewTextBoxColumn, ListSortDirection.Descending);
         }
     }
 }
